@@ -1,0 +1,56 @@
+when cnvFirma.Dragged
+  call cnvFirma.DrawLine
+    x1 = previousX
+    y1 = previousY
+    x2 = currentX
+    y2 = currentY
+when btnLimpiarFirma.Click
+  call cnvFirma.Clear
+when btnGenerarPDF.Click
+  set nombreArchivo to join
+    "Parte_Trabajo_"
+    txtEmpleado.Text
+    "_"
+    Clock1.FormatDateTime(Clock1.Now, "dd-MM-yyyy")
+    ".pdf"
+
+  call TaifunPDF1.CreatePDF
+    fileName = nombreArchivo
+call TaifunPDF1.AddImage
+  imagePath = ImgPlantilla.Picture
+  x = 0
+  y = 0
+  width = 595
+  height = 842
+call TaifunPDF1.AddText
+  text = txtEmpleado.Text
+  x = 120
+  y = 95
+  fontSize = 10
+call TaifunPDF1.AddText
+  text = dpFecha.Text
+  x = 480
+  y = 95
+  fontSize = 10
+call TaifunPDF1.AddText
+  text = txtHoras1.Text
+  x = 60
+  y = 160
+call TaifunPDF1.AddText
+  text = txtTrabajo1.Text
+  x = 120
+  y = 160
+call TaifunPDF1.AddText
+  text = txtObservaciones.Text
+  x = 80
+  y = 620
+call cnvFirma.SaveAs
+  fileName = "firma.png"
+call TaifunPDF1.AddImage
+  imagePath = "firma.png"
+  x = 80
+  y = 700
+  width = 200
+  height = 80
+call TaifunPDF1.ClosePDF
+call Notifier.ShowAlert "✅ PDF generado correctamente"
