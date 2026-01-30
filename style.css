@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f5ff;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #1a3a5f;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a8d0ff;
+}
+
+.app-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.form-section, .preview-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #1a3a5f;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a3a5f;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1a3a5f;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#generar-btn {
+    background-color: #1a5f3a;
+    color: white;
+}
+
+#imprimir-btn {
+    background-color: #1a3a5f;
+    color: white;
+}
+
+#limpiar-btn {
+    background-color: #8b0000;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.parte-preview {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    min-height: 400px;
+    font-family: 'Courier New', monospace;
+}
+
+.parte-formato {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.parte-formato td {
+    border: 1px solid #000;
+    padding: 8px;
+    height: 40px;
+    vertical-align: top;
+}
+
+.encabezado {
+    background-color: #e6f2ff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.firma-area {
+    margin-top: 30px;
+    border-top: 1px solid #000;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.historial {
+    margin-top: 30px;
+}
+
+.historial-lista {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.parte-item {
+    background-color: white;
+    border-left: 4px solid #1a3a5f;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.parte-item h4 {
+    color: #1a3a5f;
+    margin-bottom: 5px;
+}
+
+.parte-item p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.empty {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a3a5f;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Para imprimir */
+@media print {
+    .form-section, .buttons, footer, .historial, h2 {
+        display: none;
+    }
+    
+    .preview-section {
+        box-shadow: none;
+        width: 100%;
+    }
+    
+    .parte-preview {
+        border: none;
+        min-height: auto;
+    }
+}
